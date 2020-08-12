@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './myProfile.less';
+import 'bootstrap/dist/css/bootstrap.css'
 
 class MyProfile extends Component {
   constructor(props) {
@@ -46,47 +47,49 @@ class MyProfile extends Component {
     return (
       <form className="form">
         <label><h1>My Profile</h1></label>
-        <div>
-          <p>Name</p>
+        <div className="name">
+          <div className='title'> <p>Name</p></div>
           <input
+            className="input-name"
+            size="15"
             type='text'
             placeholder='Your name'
-            id='name'
             onChange={this.handleNameChange}
           >
           </input>
         </div>
-        <div>
-          <p>Gender</p>
-          <select id='gender' onChange={this.handleSeleteGender}>
+        <div className="gender">
+          <div className='title'> <p>Gender</p></div>
+          <select className='selete-gender' onChange={this.handleSeleteGender}>
             <option value='male'>male</option>
             <option value='femal'>female</option>
           </select>
         </div>
-        <div>
-          <p>Description</p>
+        <div className="desc">
+          <div className='title'> <p>Description</p></div>
           <input
             type='text'
             placeholder='Description about yourself'
-            id='desc'
+            className='input-desc'
             onChange={this.handleDescriptionChange}
           >
-        </input>
-        </div>
-        <div>
-          <label>
-          <input
-            type='checkbox'
-            id='agree'
-            value={true}
-            onChange={this.handleAgreeChange}
-          >
           </input>
-          I have read the terms of conduct
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            value={true} 
+            onChange={this.handleAgreeChange}
+            id="defaultCheck1"></input>
+          <label className="form-check-label" htmlFor="defaultCheck1">
+            I have read the terms of conduct
           </label>
         </div>
-        <div>
+        <div className="submit">
           <button
+            className="btn btn-primary"
+            style={{ width: '180px' }}
             type='submit'
             id='submit'
             disabled={!this.state.name || !this.state.gender || !this.state.description || !this.state.agree}
